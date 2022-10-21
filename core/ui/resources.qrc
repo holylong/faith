@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/help.svg</file>
+        <file>res/help_light.svg</file>
+        <file>res/close-icon.png</file>
+        <file>res/minus-icon.png</file>
+        <file>res/resize-icon.png</file>
+    </qresource>
+</RCC>
