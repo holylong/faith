@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
   app.setApplicationVersion("0.0.1");
   app.setApplicationDisplayName("faith app");
   app.setApplicationName("faith app");
-  app.setWindowIcon(QIcon(":/resources/app.png"));
+  app.setWindowIcon(QIcon(":/res/app.png"));
   Launcher *launcher = Launcher::Instance();
   launcher->exec();
   return app.exec();

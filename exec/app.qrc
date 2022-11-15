@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>resources/app.png</file>
-        <file>resources/app.svg</file>
+        <file>res/app.png</file>
+        <file>res/app.svg</file>
     </qresource>
 </RCC>

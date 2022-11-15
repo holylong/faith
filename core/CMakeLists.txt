@@ -25,6 +25,8 @@ set(UI_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/ui/localrun.h
     ${CMAKE_CURRENT_SOURCE_DIR}/ui/localrun.ui
 
+    ui/animationutil.h ui/animationutil.cpp
+
     ui/toptoolbar.h ui/toptoolbar.cpp
     ui/chatwidget.h ui/chatwidget.cpp
     ui/richedit.h ui/richedit.cpp
@@ -36,6 +38,15 @@ set(UI_SOURCES
 
     idleservice.h idleservice.cpp
 
+    ui/chatwidget.h ui/chatwidget.cpp
+    ui/chatmessage.h ui/chatmessage.cpp
+    ui/settingswidget.h ui/settingswidget.cpp
+    ui/aboutwidget.h ui/aboutwidget.cpp
+    ui/statisticwidget.h ui/statisticwidget.cpp
+    ui/roomwidget.h ui/roomwidget.cpp
+    ui/widgetutil.h ui/widgetutil.cpp
+
+    config.h config.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/ui/resources.qrc
 )
@@ -43,7 +54,7 @@ set(UI_SOURCES
 add_library(faith_core SHARED ${CORE_SRCS} ${UI_SOURCES})
 
 target_include_directories(faith_core PRIVATE ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/json/single_include)
-target_link_libraries(faith_core PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(faith_core PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Charts Qt${QT_VERSION_MAJOR}::Network Qt${QT_VERSION_MAJOR}::Core)
 
 # target_link_libraries(faith_core PRIVATE faith_ui)
 

@@ -5,5 +5,15 @@
         <file>res/close-icon.png</file>
         <file>res/minus-icon.png</file>
         <file>res/resize-icon.png</file>
+        <file>res/obsthemes/System.qss</file>
+        <file>res/BasicTheme.qss</file>
+        <file>res/chart_blue.png</file>
+        <file>res/chat_blue.png</file>
+        <file>res/meetup_blue.png</file>
+        <file>res/settings.png</file>
+        <file>res/setting_blue.png</file>
+        <file>res/about_blue.png</file>
+        <file>res/about_blue.svg</file>
+        <file>res/city_1.jpg</file>
     </qresource>
 </RCC>

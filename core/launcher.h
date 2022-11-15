@@ -8,6 +8,7 @@
 
 class MainWindow;
 class MainWidget;
+class IdleService;
 
 
 namespace faith{
@@ -35,7 +36,8 @@ namespace faith{
 
       private:
 //        MainWindow *_win;
-        MainWidget *_win;
+        MainWidget  *_win;
+        IdleService *_service;
     };
   }
 }

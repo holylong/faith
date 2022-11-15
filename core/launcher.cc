@@ -1,6 +1,7 @@
 #include "launcher.h"
 #include "ui/mainwindow.h"
 #include "ui/mainwidget.h"
+#include "idleservice.h"
 
 namespace faith{
 
@@ -29,7 +30,8 @@ namespace faith{
 
       void Launcher::InitService()
       {
-
+          _service = new IdleService();
+          _service->SendBroadcast();
       }
 
       void Launcher::InitGui()

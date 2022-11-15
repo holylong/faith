@@ -5,9 +5,19 @@
 #include <QSize>
 
 class QStackedLayout;
+class QStackedWidget;
 class QToolBar;
+class QHBoxLayout;
+class QVBoxLayout;
+
+class StatisticWidget;
+class AboutWidget;
+class SettingsWidget;
+class RoomWidget;
+class ChatWidget;
 class SettingsDialog;
 class TopToolBar;
+
 
 class MainWidget : public MovingWidget
 {
@@ -17,7 +27,16 @@ public:
 
 private:
     void InitUI();
+    void InitMainToolBar();
     void InitSigSlot();
+    void LoadStyleSheet();
+
+    void InitAboutUI();
+    void InitSettingsUI();
+    void InitStatisticUI();
+    void InitChatUI();
+    void InitRoomUI();
+    void InitConfig();
 
 signals:
 
@@ -26,8 +45,20 @@ private:
     SettingsDialog *_settingsDialog;
 
     QToolBar       *_mainToolBar;
-    QStackedLayout *_mainLayout;
+//    QStackedWidget *_mainWidget;
+    QStackedWidget *_stackedWidget;
     TopToolBar     *_topToolBar;
+
+    AboutWidget    *_aboutWidget;
+    SettingsWidget *_settingsWidget;
+    StatisticWidget*_statisticWidget;
+    ChatWidget     *_chatWidget;
+    RoomWidget     *_roomWidget;
+    QWidget        *_mainWidget;
+
+    QHBoxLayout    *_topLayout;
+    QHBoxLayout    *_ctxLayout;
+    QVBoxLayout    *_mainLayout;
 
     QSize           _preSize;
     QPoint          _orgPos;
