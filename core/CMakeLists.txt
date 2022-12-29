@@ -49,6 +49,8 @@ set(UI_SOURCES
 
     config.h config.cpp
 
+    cpxutil.h
+
     ${CMAKE_CURRENT_SOURCE_DIR}/ui/resources.qrc
 )
 

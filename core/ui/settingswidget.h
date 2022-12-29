@@ -2,6 +2,9 @@
 #define SETTINGSWIDGET_H
 
 #include <QWidget>
+#include <QFormLayout>
+#include <QMouseEvent>
+#include <QPoint>
 
 class SettingsWidget : public QWidget
 {
@@ -9,7 +12,22 @@ class SettingsWidget : public QWidget
 public:
     explicit SettingsWidget(QWidget *parent = nullptr);
 
+protected:
+    virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
+
+private:
+    void InitGeneralSettings();
+    void InitTransportSettings();
+    void InitSystemSettings();
+    void InitRemoteSettings();
+    void InitIMSettings();
+
 signals:
+
+private:
+    QFormLayout  *_layout;
+    QPoint    _lastPos;
 
 };
 

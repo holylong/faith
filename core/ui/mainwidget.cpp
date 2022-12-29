@@ -136,7 +136,7 @@ void MainWidget::InitAboutUI()
 
 void MainWidget::InitSettingsUI()
 {
-    _settingsWidget = new SettingsWidget();
+    _settingsWidget = new SettingsWidget(_stackedWidget);
     _stackedWidget->addWidget(_settingsWidget);
     if(_settingsWidget->objectName().isEmpty())
             _settingsWidget->setObjectName("_settingsWidget");
@@ -207,8 +207,8 @@ void MainWidget::InitUI()
 //    _mainLayout->addWidget(upWidget, Qt::AlignRight);
 //    _mainLayout->setMargin(0);
 
-    _settingsDialog = new SettingsDialog();
-    _stackedWidget = new QStackedWidget();
+//    _settingsDialog = new SettingsDialog();
+    _stackedWidget = new QStackedWidget(this);
 
     InitMainToolBar();
     InitChatUI();
