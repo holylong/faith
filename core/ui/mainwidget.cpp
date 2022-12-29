@@ -21,17 +21,18 @@
 #include "aboutwidget.h"
 #include "settingswidget.h"
 #include "statisticwidget.h"
+#include "faithfloatbar.h"
 #include "config.h"
 
 MainWidget::MainWidget(QWidget *parent)
     : MovingWidget(parent)
 {
-//    setStyleSheet("border-radius:5px; background-color:rgb(233,233,233);");
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     resize(910, 537);
 
     InitUI();
+    InitFloatBar();
     InitSigSlot();
     LoadStyleSheet();
 }
@@ -156,6 +157,18 @@ void MainWidget::InitChatUI()
 {
     _chatWidget = new ChatWidget();
     _stackedWidget->addWidget(_chatWidget);
+}
+
+void MainWidget::InitFloatBar()
+{
+    _floatBar = new FaithFloatBar();
+    _floatBar->show();
+}
+
+void MainWidget::SwitchFloatBar()
+{
+    if(_floatBar->isHidden())_floatBar->show();
+    else _floatBar->hide();
 }
 
 void MainWidget::InitRoomUI()

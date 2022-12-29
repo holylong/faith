@@ -45,6 +45,7 @@ set(UI_SOURCES
     ui/statisticwidget.h ui/statisticwidget.cpp
     ui/roomwidget.h ui/roomwidget.cpp
     ui/widgetutil.h ui/widgetutil.cpp
+    ui/faithfloatbar.h ui/faithfloatbar.cpp
 
     config.h config.cpp
 

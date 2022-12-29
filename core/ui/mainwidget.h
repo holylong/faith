@@ -17,6 +17,7 @@ class RoomWidget;
 class ChatWidget;
 class SettingsDialog;
 class TopToolBar;
+class FaithFloatBar;
 
 
 class MainWidget : public MovingWidget
@@ -37,6 +38,8 @@ private:
     void InitChatUI();
     void InitRoomUI();
     void InitConfig();
+    void InitFloatBar();
+    void SwitchFloatBar();
 
 signals:
 
@@ -55,6 +58,7 @@ private:
     ChatWidget     *_chatWidget;
     RoomWidget     *_roomWidget;
     QWidget        *_mainWidget;
+    FaithFloatBar  *_floatBar;
 
     QHBoxLayout    *_topLayout;
     QHBoxLayout    *_ctxLayout;
