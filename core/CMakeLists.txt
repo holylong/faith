@@ -43,6 +43,7 @@ set(UI_SOURCES
     ui/settingswidget.h ui/settingswidget.cpp
     ui/aboutwidget.h ui/aboutwidget.cpp
     ui/statisticwidget.h ui/statisticwidget.cpp
+    ui/taskwidget.h ui/taskwidget.cpp
     ui/roomwidget.h ui/roomwidget.cpp
     ui/widgetutil.h ui/widgetutil.cpp
     ui/faithfloatbar.h ui/faithfloatbar.cpp

@@ -20,6 +20,7 @@
 #include "chatwidget.h"
 #include "aboutwidget.h"
 #include "settingswidget.h"
+#include "taskwidget.h"
 #include "statisticwidget.h"
 #include "faithfloatbar.h"
 #include "config.h"
@@ -77,15 +78,17 @@ void MainWidget::InitMainToolBar()
     _mainToolBar->setOrientation(Qt::Vertical);
 
     QAction *chatAction = new QAction(QObject::tr("聊天"));
-    chatAction->setIcon(QIcon(QPixmap(":/res/chat_blue.png").scaled(500,500)));
+    chatAction->setIcon(QIcon(QPixmap(":/res/chat_blue.svg").scaled(500,500)));
     QAction *roomAction = new QAction(QObject::tr("会议"));
-    roomAction->setIcon(QIcon(QPixmap(":/res/meetup_blue.png").scaled(500,500)));
+    roomAction->setIcon(QIcon(QPixmap(":/res/meetup_blue.svg").scaled(500,500)));
     QAction *chartAction = new QAction(QObject::tr("分析"));
-    chartAction->setIcon(QIcon(QPixmap(":/res/chart_blue.png").scaled(500,500)));
+    chartAction->setIcon(QIcon(QPixmap(":/res/chart_blue.svg").scaled(500,500)));
     QAction *settingAction = new QAction(QObject::tr("设置"));
-    settingAction->setIcon(QIcon(QPixmap(":/res/setting_blue.png").scaled(500,500)));
+    settingAction->setIcon(QIcon(QPixmap(":/res/settings.svg").scaled(500,500)));
+    QAction *taskAction = new QAction(QObject::tr("任务"));
+    taskAction->setIcon(QIcon(QPixmap(":/res/task.svg").scaled(500,500)));
     QAction *aboutAction = new QAction(QObject::tr("关于"));
-    aboutAction->setIcon(QIcon(QPixmap(":/res/about_blue.png").scaled(500,500)));
+    aboutAction->setIcon(QIcon(QPixmap(":/res/about_blue.svg").scaled(500,500)));
 
     QObject::connect(chatAction, &QAction::triggered, [&]{
         qDebug() << "chat view";
@@ -111,16 +114,23 @@ void MainWidget::InitMainToolBar()
         AnimationUtil::AnimationDoorOpen(_stackedWidget, 3);
     });
 
-    QObject::connect(aboutAction, &QAction::triggered, [&]{
+    QObject::connect(taskAction, &QAction::triggered, [&]{
         if(4 == _stackedWidget->currentIndex())
             return;
         AnimationUtil::AnimationDoorOpen(_stackedWidget, 4);
+    });
+
+    QObject::connect(aboutAction, &QAction::triggered, [&]{
+        if(5 == _stackedWidget->currentIndex())
+            return;
+        AnimationUtil::AnimationDoorOpen(_stackedWidget, 5);
     });
 
     _mainToolBar->addAction(chatAction);
     _mainToolBar->addAction(roomAction);
     _mainToolBar->addAction(chartAction);
     _mainToolBar->addAction(settingAction);
+    _mainToolBar->addAction(taskAction);
     _mainToolBar->addAction(aboutAction);
 
     _mainToolBar->setIconSize(QSize(width()/20,width()/20));
@@ -171,6 +181,12 @@ void MainWidget::SwitchFloatBar()
     else _floatBar->hide();
 }
 
+void MainWidget::InitTaskUI()
+{
+    _taskWidget = new TaskWidget();
+    _stackedWidget->addWidget(_taskWidget);
+}
+
 void MainWidget::InitRoomUI()
 {
     _roomWidget = new RoomWidget();
@@ -186,7 +202,7 @@ void MainWidget::InitUI()
 
     _topToolBar = new TopToolBar();
     QLabel *title = new QLabel;
-    title->setText("Faith Chat");
+    title->setText("Faith");
     QFont font;
     font.setPointSize(15);
     font.setFamily("MicrosoftYaHei");
@@ -215,6 +231,7 @@ void MainWidget::InitUI()
     InitRoomUI();
     InitStatisticUI();
     InitSettingsUI();
+    InitTaskUI();
     InitAboutUI();
 
     _ctxLayout->addWidget(_stackedWidget);

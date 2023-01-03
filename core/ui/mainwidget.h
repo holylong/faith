@@ -14,6 +14,7 @@ class StatisticWidget;
 class AboutWidget;
 class SettingsWidget;
 class RoomWidget;
+class TaskWidget;
 class ChatWidget;
 class SettingsDialog;
 class TopToolBar;
@@ -37,6 +38,7 @@ private:
     void InitStatisticUI();
     void InitChatUI();
     void InitRoomUI();
+    void InitTaskUI();
     void InitConfig();
     void InitFloatBar();
     void SwitchFloatBar();
@@ -57,6 +59,7 @@ private:
     StatisticWidget*_statisticWidget;
     ChatWidget     *_chatWidget;
     RoomWidget     *_roomWidget;
+    TaskWidget     *_taskWidget;
     QWidget        *_mainWidget;
     FaithFloatBar  *_floatBar;
 

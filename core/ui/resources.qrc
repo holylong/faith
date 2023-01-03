@@ -15,5 +15,11 @@
         <file>res/about_blue.png</file>
         <file>res/about_blue.svg</file>
         <file>res/city_1.jpg</file>
+        <file>res/task.svg</file>
+        <file>res/settings.svg</file>
+        <file>res/chart.svg</file>
+        <file>res/meetup_blue.svg</file>
+        <file>res/chart_blue.svg</file>
+        <file>res/chat_blue.svg</file>
     </qresource>
 </RCC>
