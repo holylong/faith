@@ -36,6 +36,10 @@ set(UI_SOURCES
     ui/movingwidget.h ui/movingwidget.cpp
     ui/mainwidget.h ui/mainwidget.cpp
 
+    ui/slideanimationstackedwidget.h ui/slideanimationstackedwidget.cpp
+    ui/cubeanimationstackedwidget.h ui/cubeanimationstackedwidget.cpp
+    ui/sphereanimationstackedwidget.h ui/sphereanimationstackedwidget.cpp
+
     idleservice.h idleservice.cpp
 
     ui/chatwidget.h ui/chatwidget.cpp

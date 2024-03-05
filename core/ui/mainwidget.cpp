@@ -57,6 +57,7 @@ void MainWidget::InitSigSlot()
             _orgPos = pos();
             move(0,0);
             setFixedSize(qApp->primaryScreen()->size());
+//            _mainWidget->setFixedSize(qApp->primaryScreen()->size());
         }
         _bMax = !_bMax;
     });
@@ -111,19 +112,19 @@ void MainWidget::InitMainToolBar()
     QObject::connect(settingAction, &QAction::triggered, [&]{
         if(3 == _stackedWidget->currentIndex())
             return;
-        AnimationUtil::AnimationDoorOpen(_stackedWidget, 3);
+        AnimationUtil::AnimationWndDrop(_stackedWidget, 3);
     });
 
     QObject::connect(taskAction, &QAction::triggered, [&]{
         if(4 == _stackedWidget->currentIndex())
             return;
-        AnimationUtil::AnimationDoorOpen(_stackedWidget, 4);
+        AnimationUtil::AnimationWndDown(_stackedWidget, 4);
     });
 
     QObject::connect(aboutAction, &QAction::triggered, [&]{
         if(5 == _stackedWidget->currentIndex())
             return;
-        AnimationUtil::AnimationDoorOpen(_stackedWidget, 5);
+        AnimationUtil::AnimationWndShake(_stackedWidget, 5);
     });
 
     _mainToolBar->addAction(chatAction);
@@ -134,6 +135,8 @@ void MainWidget::InitMainToolBar()
     _mainToolBar->addAction(aboutAction);
 
     _mainToolBar->setIconSize(QSize(width()/20,width()/20));
+    _mainToolBar->layout()->setMargin(5);
+    _mainToolBar->layout()->setSpacing(5);
 
     _ctxLayout->addWidget(_mainToolBar);
 }
@@ -245,6 +248,7 @@ void MainWidget::InitUI()
             _mainWidget->setObjectName("_mainWidget");
 
     QHBoxLayout *ttLayout = new QHBoxLayout();
+    ttLayout->setMargin(0);
     ttLayout->addWidget(_mainWidget);
 
     setLayout(ttLayout);

@@ -13,6 +13,9 @@ public:
     static void AnimationWndDown(QWidget *w);
     static void AnimationWndDrop(QWidget *w);
     static void AnimationWndShake(QWidget *w);
+    static void AnimationWndDown(QWidget *w, int x);
+    static void AnimationWndDrop(QWidget *w, int x);
+    static void AnimationWndShake(QWidget *w, int x);
     static void AnimationStart(QWidget *w);
     static void AnimationClose(QWidget *w);
     static void AnimationDoorOpen(QWidget *w, int x);

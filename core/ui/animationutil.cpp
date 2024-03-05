@@ -26,19 +26,37 @@ void AnimationUtil::AnimationWndDown(QWidget *w)
 void AnimationUtil::AnimationWndDrop(QWidget *w)
 {
     QPropertyAnimation *pAnimation = new QPropertyAnimation(w, "geometry");
-    int x = (dskwidth() - w->width()) / 2;
-    int y = (dskheight() - w->height()) / 2;
+//    int x = (dskwidth() - w->width()) / 2;
+//    int y = (dskheight() - w->height()) / 2;
     pAnimation->setDuration(500);
-    pAnimation->setStartValue(QRect(x, 0, w->width(), w->height()));
-    pAnimation->setEndValue(QRect(x, y, w->width(), w->height()));
+    pAnimation->setStartValue(QRect(w->x(), 0, w->width(), w->height()));
+    pAnimation->setEndValue(QRect(w->x(), w->y(), w->width(), w->height()));
     pAnimation->setEasingCurve(QEasingCurve::OutElastic);
     pAnimation->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
+void AnimationUtil::AnimationWndShake(QWidget *w, int x)
+{
+    AnimationWndShake(w);
+    ((QStackedWidget*)w)->setCurrentIndex(x);
+}
+
+void AnimationUtil::AnimationWndDown(QWidget *w, int x)
+{
+    AnimationWndDown(w);
+    ((QStackedWidget*)w)->setCurrentIndex(x);
+}
+
+void AnimationUtil::AnimationWndDrop(QWidget *w, int x)
+{
+    AnimationWndDrop(w);
+    ((QStackedWidget*)w)->setCurrentIndex(x);
+}
+
 void AnimationUtil::AnimationWndShake(QWidget *w)
 {
-    w->setGeometry(dskwidth()/2 - w->width()/2,
-                   dskheight()/2 - w->height()/2, w->width(), w->height());
+//    w->setGeometry(dskwidth()/2 - w->width()/2,
+//                   dskheight()/2 - w->height()/2, w->width(), w->height());
 
     QPropertyAnimation *animShake = new QPropertyAnimation(w, "pos");
     if(animShake->state() == QPropertyAnimation::Running)
